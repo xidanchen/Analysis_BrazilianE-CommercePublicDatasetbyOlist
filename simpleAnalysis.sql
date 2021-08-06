@@ -30,5 +30,5 @@ customer_state
 FROM
 customers
 GROUP BY customer_unique_id
-HAVING COUNT(customer_id) >= 2
+HAVING COUNT(customer_id) = 1
 ;
