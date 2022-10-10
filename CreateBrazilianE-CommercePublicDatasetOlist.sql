@@ -241,9 +241,61 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
+################################ add marketing funnel data
+-- DROP TABLE closed_deals;
+CREATE TABLE closed_deals (
+mql_id VARCHAR(255) PRIMARY KEY NOT NULL,
+seller_id VARCHAR(255) NOT NULL,
+sdr_id VARCHAR(255),
+sr_id VARCHAR(255),
+won_date TIMESTAMP NULL,
+business_segment VARCHAR(255),
+lead_type VARCHAR(255),
+lead_behaviour_profile VARCHAR(255),
+has_company CHAR(5),	
+has_gtin CHAR(5),
+average_stock VARCHAR(255),
+business_type VARCHAR(255),
+declared_product_catalog_size INT,
+declared_monthly_revenue INT
+);
 
+LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/olist_closed_deals_dataset.csv"
+INTO TABLE closed_deals
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(mql_id,
+seller_id,
+sdr_id,
+sr_id,
+won_date,
+business_segment,
+lead_type,
+lead_behaviour_profile,
+has_company,
+has_gtin,
+average_stock,
+business_type,
+@v_declared_product_catalog_size,
+declared_monthly_revenue)
+SET 
+declared_product_catalog_size = NULLIF(@v_declared_product_catalog_size, '')
+;
 
+-- drop table marketing_qualified_leads;
+CREATE TABLE marketing_qualified_leads (
+mql_id VARCHAR(255),
+first_contact_date DATETIME,
+landing_page_id VARCHAR(255),
+origin VARCHAR(255)
 
+);
 
-
-
+LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/olist_marketing_qualified_leads_dataset.csv"
+INTO TABLE marketing_qualified_leads
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
