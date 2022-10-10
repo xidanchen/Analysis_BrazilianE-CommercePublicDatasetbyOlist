@@ -1,3 +1,4 @@
+use olistpublic;
 select customer_unique_id, count(*)
 from customers
 group by customer_unique_id
@@ -96,3 +97,29 @@ group by product_category_name
 having count(*) > 1
 ;
 
+alter table category_name
+add primary key (product_category_name);
+/* product_cateogry_name in two tables do not match exactly
+alter table products
+add foreign key (product_category_name)
+    references category_name(product_category_name)
+;
+*/
+
+/*
+select count(*)
+from closed_deals
+group by mql_id
+having count(*) > 1
+;
+*/
+
+select count(*)
+from marketing_qualified_leads
+group by mql_id
+having count(*) > 1
+;
+
+alter table marketing_qualified_leads
+add primary key (mql_id)
+;
