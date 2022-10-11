@@ -16,6 +16,7 @@ order by contact_date
 the second and third are paid search and social
 2. social became the second most important contributor from 2018/04
 3. organic_search significantly increased from 2018/01
+4. I will take deeper look of marketing channel performance with the combined marketing channel data
 */
 select origin, count(*)
 from marketing_qualified_leads
