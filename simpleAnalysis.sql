@@ -15,7 +15,7 @@ customer_zip_code_prefix,
 customer_city,
 customer_state
 FROM
-customers c
+customers 
 GROUP BY customer_unique_id
 HAVING COUNT(customer_id) >= 2
 ;
@@ -32,3 +32,6 @@ customers
 GROUP BY customer_unique_id
 HAVING COUNT(customer_id) = 1
 ;
+
+
+
