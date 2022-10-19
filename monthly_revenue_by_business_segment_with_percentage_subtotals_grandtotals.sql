@@ -1,3 +1,12 @@
+create temporary table marketing_orders
+select *
+from closed_deals
+inner join order_items using (seller_id)
+inner join orders using (order_id)
+inner join products using (product_id)
+left join category_name using (product_category_name)
+;
+
 ### Monthly Revenues by Business Segment (Revenue is calculated by summing up price)(with subtotals and grand totals)
 select A.*, 
 concat(round(revenue * 100/first_value(revenue) over w, 2), '%') as monthly_pct
