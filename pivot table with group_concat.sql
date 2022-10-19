@@ -1,3 +1,12 @@
+create temporary table marketing_orders
+select *
+from closed_deals
+inner join order_items using (seller_id)
+inner join orders using (order_id)
+inner join products using (product_id)
+left join category_name using (product_category_name)
+;
+
 #pivot table using group_concat
 SET
   SESSION group_concat_max_len = 100000;
