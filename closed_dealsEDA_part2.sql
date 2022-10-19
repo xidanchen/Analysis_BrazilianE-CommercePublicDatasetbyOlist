@@ -8,6 +8,7 @@ inner join products using (product_id)
 left join category_name using (product_category_name)
 ;
 select*from marketing_orders;
+
 ### Monthly Revenues by Business Segment (Revenue is calculated by summing up price)(with subtotals and grand totals)
 select A.*, 
 concat(round(revenue * 100/first_value(revenue) over w, 2), '%') as monthly_pct
@@ -56,4 +57,15 @@ FROM
   @pivot_statement;
 
 EXECUTE complete_pivot_statment;
+/* save the results to view monthly_revenue_by_business_segment
+refer to file 'monthly_revenue_by_business_segment_view.sql' */
 
+
+#### Monthly Revenues growth by Business Segment
+select order_month, air_conditioning, 
+air_conditioning - lag(air_conditioning) over w as air_conditioning_growth,
+concat(round(((air_conditioning - lag(air_conditioning) over w)/lag(air_conditioning) over w) * 100, 2), '%') 
+as air_conditioning_growth_rt
+from monthly_revenue_by_business_segment
+window w as (order by order_month)
+;
