@@ -112,6 +112,20 @@ PREPARE complete_pivot_statment2
 FROM
   @pivot_statement2;
 EXECUTE complete_pivot_statment2;
+/* graphs saved in excel file*/
+/* from the previous analysis we can see
+1. total revenues increase over time in the first eight months of 2018
+2. audio video electronics, small appliance, health beauty, stationary, household utilities and watches growth soared in the third month
+3. we also see an increase in book, computer, food-drink, pet segments in fourth month
+
+4. watches segment generated most of the revenues in the first six months (why?)
+5. note business segment is from seller's side information. A segment generating more revenue could have different meanings, it could mean sellers are 
+selling more such products, not necessarily means such products are selling better on the platform. 
+A good example here is watches segment. watches segment generated most of the revenues, but watches percentage of 
+monthly revenue decreased over time as business segments increased over time. This results show as the platform having more
+diverse sellers signed on, the importance of watches as revenue driver decreased. 
+to better understand the relationshp between current products/business segment, I have conducted product category analysis below. 
+*/
 
 
 
