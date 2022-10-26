@@ -61,7 +61,7 @@ EXECUTE complete_pivot_statment;
 refer to file 'monthly_revenue_by_business_segment_view.sql' */
 
 
-#### Monthly Revenues growth by Business Segment
+### Monthly Revenues growth by Business Segment
 /* select order_month, air_conditioning, 
 air_conditioning - lag(air_conditioning) over w as air_conditioning_growth,
 concat(round(((air_conditioning - lag(air_conditioning) over w)/lag(air_conditioning) over w) * 100, 2), '%') 
