@@ -32,7 +32,7 @@ group by contact_date
 order by contact_date
 ;
 
-### sales length: period from first contact to signing up for seller
+# sales length: period from first contact to signing up for seller
 -- drop table marketing_funnel;
 create temporary table marketing_funnel 
 select m.mql_id, m.first_contact_date, m.origin, m.landing_page_id,
@@ -93,7 +93,7 @@ are two most viewed landing_page, their conversion rate are 19.71% and 18.75% re
 so i am not able to inversigate further. 
 */
 
-#### landing page by month
+#### landing page by month and weekday difference
 /*
 1. two most visited landing pages' conversion rates significant increased from 2018 and were stable from 2018
 2. 22c29808c4f815213303f8933030604c had highest conversion rate on tuesday
@@ -134,7 +134,7 @@ order by wkday_contact_date
 ### marketing channel performance
 /* which marketing channels are driving most mql and closed deals
  understanding differences in user characteristics and conversion performance across marketing channels
- optimizing bids and allocating marketing spend across a multi-channel portfolio to achieve maximum performance
+ optimizing bids and allocating marketing spend across a multi-channel portfolio to achieve maximum performance are important
  */
 select origin, count(mql_id) as num_mql, count(seller_id) as num_closed_deals,
 count(seller_id)/count(mql_id) as conv_rt
@@ -144,7 +144,8 @@ order by conv_rt desc
 ;
 /* 
 1. from the previous marketing_qualified_leads data analysis, we know organic_search, paid_search, and social
-are three major contributor of mql. Here paid_search performed better than organic_search in terms of conversion rate.
+are three major contributor of mql. 
+Here paid_search performed better than organic_search in terms of conversion rate.
 social has a really low conversion rate comparing to those two. some unknow origins have really good conversion rate. It will
 be intersting to dig into and have better understanding of those traffic sources. 
 2. note paid_search is only slightly better than non_paid(organic_search, direct_traffic)
