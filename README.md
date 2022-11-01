@@ -1,5 +1,5 @@
 # Analysis_BrazilianE-CommercePublicDatasetbyOlist
-**Data source**:
+**Data source**
 https://www.kaggle.com/olistbr/brazilian-ecommerce
 https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist
 
@@ -84,7 +84,10 @@ https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist
     - product category analysis
 
 
-
+**Visualization**
+- power BI
+  - olistpublic_viz.pbix
+    - preview: revenueSummary.pdf
 
 
 
