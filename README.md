@@ -87,7 +87,7 @@ https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist
 **Visualization**
 - power BI
   - olistpublic_viz.pbix
-    - preview: revenueSummary.pdf
+    - preview: viz_revenueSumary_KPI.pdf
 
 
 
