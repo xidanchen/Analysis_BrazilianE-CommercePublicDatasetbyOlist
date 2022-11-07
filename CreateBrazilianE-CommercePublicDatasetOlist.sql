@@ -299,3 +299,18 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+###################################################### create category_main table #########################################
+# use olistpublic;
+# drop table category_main;
+CREATE TABLE category_main (
+product_category_main VARCHAR(255) NOT NULL,
+product_category_name_english VARCHAR(255) NOT NULL
+);
+
+LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/product_category_name_main.csv"
+INTO TABLE category_main
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
